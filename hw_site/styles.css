@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+body {
+    background-color: #0e0028;
+    background-image: linear-gradient(165deg, #0E0028, #3393C4);
+    font-family: "Open Sans", sans-serif;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-image: none;
+}
+
+div {
+    border-radius: 25px;
+    background-color: #1a2743;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    color: #fa7878;
+}
+
+p, ul, li, td {
+    color: #b5f5ff;
+}
+
+a {
+    color: #dc8fcd;
+}
+
+#sidebar {
+    flex: 0 1 20%;
+    margin: 20px;
+    padding: 20px;
+}
+
+#sidebar ul {
+    list-style-type: none;
+}
+
+#content {
+    width: 820px;
+    margin: 20px;
+    padding: 20px;
+}

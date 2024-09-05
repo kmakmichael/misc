@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 7 - Part 1">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 7 - Part 1</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/form_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="part1.js" defer></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <ul>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw7/part1.html">Part 1</a></li>
+                <li><a href="/hw7/part2.html">Part 2</a></li>
+            </ul>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Part 1: Dynamic Styles</h1>
+        <div id="dynabox">
+            <h2 class="dynatext">Placeholder Text</h2>
+            <p class="dynatext">This is the first paragraph.</p>
+            <p class="dynatext">This is the second paragraph.</p>
+            <p class="dynatext">This is the third paragraph.</p>
+        </div>
+        <form>
+            <p>Background Color: </p><br />
+            <input type="radio" name="bg" value="transparent" id="bg_default" checked="checked">
+            <label for="bg_default">Default</label><br />
+            <input type="radio" name="bg" value="blue" id="bg_blue">
+            <label for="bg_blue">Blue</label><br />
+            <input type="radio" name="bg" value="pink" id="bg_pink">
+            <label for="bg_pink">Pink</label><br />
+            <input type="radio" name="bg" value="yellow" id="bg_yellow">
+            <label for="bg_yellow">Yellow</label><br />
+            
+            <br /><p>Font Style</p><br />
+            <input type="checkbox" name="st_b" id="st_b">
+            <label for="st_b">Bold</label><br />
+            <input type="checkbox" name="st_i" id="st_i">
+            <label for="st_i">Italic</label><br />
+            <input type="checkbox" name="st_u" id="st_u">
+            <label for="st_u">Underline</label><br />
+            
+            <br /><p>Font Size</p><br />
+            <select name="fs" id="fs">
+                <option value="0.75em">0.75em</option>
+                <option value="1.0em">1.0em</option>
+                <option value="1.25em">1.25em</option>
+            </select>
+        </form>
+        <h3><a href="/hw7.html">Back to HW7</a></h3>
+    </div>
+</body>
+</html>

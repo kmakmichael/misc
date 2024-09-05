@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 5 - Part 2">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 5 - Part 2</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="part2.js" defer></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <ul>
+                <li><a href="/hw5/part1.html">Part 1</a></li>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw5/part2.html">Part 2</a></li>
+                <li><a href="/hw5/part3.html">Part 3</a></li>
+            </ul>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Part 2: Dropdown Menus</h1>
+        <form>
+            <label for="destList">onchange</label>
+            <select name="destList" onchange="goToNewPage(this.form);">
+                <option value="">Select Website:</option>
+                <option value="http://www.yahoo.com/">Yahoo</option>
+                <option value="http://www.w3.org/">W3C</option>
+                <option value="http://www.mozilla.org/">Mozilla</option>
+                <option value="http://www.ccsf.edu/cnit">CNIT</option>
+            </select><br />
+        </form>
+        <form>
+            <label for="destList">onclick</label>
+            <select name="destList">
+                <option value="">Select Website:</option>
+                <option value="http://www.yahoo.com/">Yahoo</option>
+                <option value="http://www.w3.org/">W3C</option>
+                <option value="http://www.mozilla.org/">Mozilla</option>
+                <option value="http://www.ccsf.edu/cnit">CNIT</option>
+            </select>
+            <input type="button" onclick="goToNewPage(this.form);" value="Go"/>
+        </form>
+        <h3><a href="/hw5.html">Back to HW5</a></h3>
+    </div>
+</body>
+</html>

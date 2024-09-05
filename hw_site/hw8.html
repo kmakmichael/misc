@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 8">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 8 - AJAX Application</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form_styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li>&emsp;&rarr;&nbsp;<a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Homework 8</h1>
+        <button type="button" onclick="loadDoc()">Get CD collection</button>
+        <br><br>
+        <table id="demo"></table>
+        
+        <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                myFunction(this);
+            }
+            xhttp.open("GET", "hw8/cd_catalog.xml");
+            xhttp.send();
+        }
+        function myFunction(xml) {
+            const xmlDoc = xml.responseXML;
+            const x = xmlDoc.getElementsByTagName("CD");
+            let table="<tr><th>Artist</th><th>Title</th></tr>";
+            for (let i = 0; i <x.length; i++) { 
+                table += "<tr><td>" +
+                x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+        </script>
+        <h2>Explanation of Ajax</h2>
+        <p>
+            Ajax allows a webpage to dynamically update its content without refreshing the entire
+            page. </thead>The <code>XMLHttpRequest</code> class is core to this process, 
+            defining a request to an internal or external web server. This request (ideally) will
+            load XML data from the file <code>hw8/cd_catalog.xml</code> and send it. The request is 
+            created with the <code>open()</code> function and sent with <code>send()</code>.
+            <code>send()</code> will return immediately without waiting for the result of the GET request.
+            The data received will instead be processed by the <code>onload</code> function defined
+            earlier. <code>myFunction()</code> will be passed the result of the request and pulls a set
+            of tags from the XML document. These tags are processed and added to the DOM. This process
+            allows code execution to continue elsewhere while the XML data is fetched, rather than having
+            to wait for the XML data to be processed first.
+        </p>
+        <h2>REST API: OMDb</h2>
+        <p>
+            The <a href="https://www.omdbapi.com/">OMDb API</a> enables access to the Open Movie Database via
+            simple http requests. This makes it ideal for quick development time. The API can send
+            a response in XML or JSON, both of which are also simple and easy to develop with. The API
+            has a wide range of parameters with which to search and provides detailed information on
+            any film in their database, making it easy to get the needed information.
+        </p>
+        <p>
+            OMDb's API is free to use, which is a huge advantage compared to <a href="https://developer.imdb.com/">
+            IMDb's</a>, which comes with a <a href="https://aws.amazon.com/marketplace/search/results?FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CREATOR=0af153a3-339f-48c2-8b42-3b9fa26d3367&DATA_AVAILABLE_THROUGH=API_GATEWAY_APIS&filters=FULFILLMENT_OPTION_TYPE%2CCREATOR%2CDATA_AVAILABLE_THROUGH">
+            six-digit</a> price tag. Keys to the OMDb API are also free and easily obtained from their website.
+            However, accessing posters requires a subscription to their Patreon and the information on the site
+            is crowdsourced. Purely in terms of cost, OMDb is a far better deal than IMDb. For small-scale and hobby
+            projects OMDb is the clear choice, though if this project takes off we should consider switching to IMDb.
+        </p>
+        <h2>OMDb search</h2>
+        <form name="omdb">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" placeholder="Title" required><br />
+            <label for="year">Year:</label>
+            <input type="text" name="year" id="year" pattern="[0-9]{4}" placeholder="Year"><br />
+            <input type="submit">
+            <input type="reset">
+        </form>
+        <script>
+            var key = "3eee36af"; // do NOT do this in a real application
+            var f = document.forms["omdb"];
+            f.onreset = (event) => {
+                document.querySelector("div#results").innerHTML = "";
+            }
+            f.onsubmit = (event) => {
+                event.preventDefault();
+                let title = f.elements["title"].value;
+                let year = f.elements["year"].value;
+                if (title == "" && year == "") {
+                    document.querySelector("div#results").innerHTML = "<p>Enter a title or year to search for</p>";
+                    return;
+                }
+                let req = `https://www.omdbapi.com/?apikey=${key}&t=${encodeURIComponent(title)}&r=xml`;
+                if (year != "") {
+                    req += `&y=${encodeURIComponent(year)}`;
+                }
+                // console.log(req);
+
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    recv(this);
+                }
+                xhttp.open("GET", req);
+                xhttp.send();
+            }
+            function recv(r) {
+                // console.log(r);
+                const xml = r.responseXML;
+                if (xml.documentElement.attributes["response"].value == "False") {
+                    document.querySelector("div#results").innerHTML = `<p>${xml.querySelector("error").textContent}</p>`;
+                } else {
+                    let mov = xml.querySelector("movie");
+                    // console.log(mov);
+                    let t = mov.attributes.title.value;
+                    let y = mov.attributes.year.value;
+                    let r = mov.attributes.runtime.value;
+                    let p = mov.attributes.plot.value;
+                    document.querySelector("div#results").innerHTML = `<h3>${t} (${y}) <sub>${r}</sub></h3><p>${p}</p>`;
+                }
+            }
+        </script>
+        <div id="results"></div>
+        <br /><h3><a href="/index.html">Back to Home</a></h3>
+    </div>
+</body>
+</html>

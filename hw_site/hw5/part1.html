@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 5 - Part 1">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 5 - Part 1</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="part1.js" defer></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <ul>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw5/part1.html">Part 1</a></li>
+                <li><a href="/hw5/part2.html">Part 2</a></li>
+                <li><a href="/hw5/part3.html">Part 3</a></li>
+            </ul>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Part 1: Survey</h1>
+        <form name="p1form">
+            <input type="button" onclick="ClearForm()" value="Clear Form"><br /><br />
+            <label for="name_box"><h3>Full Name</h3></label>
+            <input type="text" name="full_name" id="name_box"><br />
+            <p><h3>Age:</h3></p>
+            <label for="age_btn_lt">Less than 21</label>
+            <input type="radio" name="age_group" id="age_btn_lt" value="lt">
+            <label for="age_btn_bw">Between 21 and 50</label>
+            <input type="radio" name="age_group" id="age_btn_bw" value="bw">
+            <label for="age_btn_gt">Greater than 50</label>
+            <input type="radio" name="age_group" id="age_btn_gt" value="gt">
+            <br />
+            <p><h3>Browsers Used:</h3></p>
+            <input type="checkbox" name="browsers" id="browsers_ff" value="ff">
+            <label for="browsers_ff">Firefox</label>
+            <input type="checkbox" name="browsers" id="browsers_eg" value="eg">
+            <label for="browsers_eg">Edge</label>
+            <input type="checkbox" name="browsers" id="browsers_ch" value="ch">
+            <label for="browsers_ch">Chrome</label>
+            <input type="checkbox" name="browsers" id="browsers_sf" value="sf">
+            <label for="browsers_sf">Safari</label>
+            <br />
+            <label for="movie_box"><h3>Preferred movie genre:</h3></label>
+            <select name="movie" id="movie_sel">
+                <option value=""></option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="docu">Documentary</option>
+                <option value="scifi">Science Fiction</option>
+            </select><br />
+            <input type="submit" value="Submit"><br />
+        </form>
+        <p id="form_output"></p>
+        <h3><a href="/hw5.html">Back to HW5</a></h3>
+    </div>
+</body>
+</html>

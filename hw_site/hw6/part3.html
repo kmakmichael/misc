@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 6 - Part 3">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 6 - Part 3</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../form_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="part3.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <ul>
+                <li><a href="/hw6/part1.html">Part 1</a></li>
+                <li><a href="/hw6/part2.html">Part 2</a></li>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw6/part3.html">Part 3</a></li>
+            </ul>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Part 3: Phone Split</h1>
+        <form>
+            <label for="pnum">Enter Phone Number:</label>
+            <input required type="text" name="pnum" id="pnum" placeholder="(123) 456-789" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" maxlength="10"><br /><br />
+            <label for="area">Area Code:</label>
+            <input readonly type="text" name="area" id="area" size="3"><br />
+            <label for="prefix">Prefix:</label>
+            <input readonly type="text" name="prefix" id="prefix" size="3"><br />
+            <label for="line">Line:</label>
+            <input readonly type="text" name="line" id="line" size="4"><br />
+            <input type="submit">
+            <input type="reset">
+        </form>
+        <h3><a href="/hw6.html">Back to HW6</a></h3>
+    </div>
+</body>
+</html>

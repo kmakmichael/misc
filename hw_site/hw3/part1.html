@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 3 - Part 1">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 3 - Part 1</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="part1.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <ul>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw3/part1.html">Part 1</a></li>
+                <li><a href="/hw3/part2.html">Part 2</a></li>
+            </ul>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Student Grades</h1>
+        <form name="grades_form">
+            <label for="hw_avg">Homework Average</label>
+            <input type="number" id="hw_avg" name="hw_avg" /><br />
+            <label for="midterm">Mid-Term Exam Score</label>
+            <input type="number" id="midterm" name="midterm" /><br />
+            <label for="final">Final Exam Score</label>
+            <input type="number" id="final" name="final" /><br />
+            <label for="participation">Participation</label>
+            <input type="number" id="participation" name="participation" /><br />
+            <input type="button" onclick="ButtonPress()" value="Calculate"><br>
+            <textarea id="resultBox" name="resultBox" rows="2" cols="24"></textarea>
+        </form>
+        <a href="/hw3.html"><h3>Back to HW3</h3></a>
+    </div>
+</body>
+</html>

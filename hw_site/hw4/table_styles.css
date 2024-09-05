@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+div#table_div th {
+    background-color: rgb(212, 235, 240);
+}
+div#table_div tr td {
+    background-color: rgb(102, 39, 162);
+}
+div#table_div tr:nth-of-type(2n) td {
+    background-color: rgb(158, 69, 84);
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CIS 114 HW 3 - Part 2">
+    <meta name="Author" content="Michael Kmak">
+    <title>Homework 3 - Part 2</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="part2.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/hw2.html">Homework 2</a></li>
+            <li><a href="/hw3.html">Homework 3</a></li>
+            <ul>
+                <li><a href="/hw3/part1.html">Part 1</a></li>
+                <li>&emsp;&rarr;&nbsp;<a href="/hw3/part2.html">Part 2</a></li>
+            </ul>
+            <li><a href="/hw4.html">Homework 4</a></li>
+            <li><a href="/hw5.html">Homework 5</a></li>
+            <li><a href="/hw6.html">Homework 6</a></li>
+            <li><a href="/hw7.html">Homework 7</a></li>
+            <li><a href="/hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Homework 3 - Part 2</h1>
+        <form name="sales_form">
+            <label for="seller_name">Seller's Name:</label>
+            <input type="text" id="seller_name" name="seller_name" /><br />
+            <label for="q_item1">Item 1: </label>
+            <input type="q_item1" id="midterm" name="q_item1" /><br />
+            <label for="q_item2">Item 2: </label>
+            <input type="q_item2" id="midterm" name="q_item2" /><br />
+            <label for="q_item3">Item 3: </label>
+            <input type="q_item3" id="midterm" name="q_item3" /><br />
+            <label for="q_item4">Item 4: </label>
+            <input type="q_item5" id="midterm" name="q_item4" /><br />
+
+            <input type="button" onclick="ButtonSubmit()" value="Submit"><br /><br />
+            <input type="button" onclick="ButtonClear()" value="Clear Form"><br />
+            <table>
+                <tr>
+                    <th>Item#</th>
+                    <th>Item Price</th>
+                    <th>Qty Sold</th>
+                    <th>Total $</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>$20.99</td>
+                    <td><input type="text" id="i1_qty" name="i1_qty" readonly/></td>
+                    <td><input type="text" id="i1_tot" name="i1_tot" readonly/></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$12.75</td>
+                    <td><input type="text" id="i2_qty" name="i2_qty" readonly/></td>
+                    <td><input type="text" id="i2_tot" name="i2_tot" readonly/></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$9.95</td>
+                    <td><input type="text" id="i3_qty" name="i3_qty" readonly/></td>
+                    <td><input type="text" id="i3_tot" name="i3_tot" readonly/></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>$35.89</td>
+                    <td><input type="text" id="i4_qty" name="i4_qty" readonly/></td>
+                    <td><input type="text" id="i4_tot" name="i4_tot" readonly/></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total Amount Sold</td>
+                    <td><input type="text" id="tot" name="tot" readonly/></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total Weekly Earnings</td>
+                    <td><input type="text" id="earnings" name="earnings" readonly/></td>
+                </tr>
+            </table>
+        </form>
+        <a href="/hw3.html"><h3>Back to HW3</h3></a>
+    </div>
+</body>
+</html>
